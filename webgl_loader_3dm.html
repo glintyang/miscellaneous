@@ -107,16 +107,13 @@
 
         const loader = new Rhino3dmLoader();
         loader.setLibraryPath("https://cdn.jsdelivr.net/npm/rhino3dm@7.11.1/");
-        loader.load(
-          "https://cdn.jsdelivr.net/gh/glintyang/miscellaneous/a.3dm",
-          function (object) {
-            scene.add(object);
-            initGUI(object.userData.layers);
+        loader.load("a.3dm", function (object) {
+          scene.add(object);
+          initGUI(object.userData.layers);
 
-            // hide spinner
-            document.getElementById("loader").style.display = "none";
-          }
-        );
+          // hide spinner
+          document.getElementById("loader").style.display = "none";
+        });
 
         controls = new OrbitControls(camera, renderer.domElement);
 
